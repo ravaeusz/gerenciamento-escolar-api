@@ -1,4 +1,4 @@
-import {getAlunos, StoreAlunos, DeleteAlunos, Updatealunos } from '../model/Alunomodel.js'
+import {getAlunos, StoreAlunos, DeleteAlunos, Updatealunos, getAlunosById } from '../model/Alunomodel.js'
 
 export const homeController = async (req, res) => {
     const alunos = await getAlunos();
@@ -20,7 +20,7 @@ export const PostAlunos = async (req, res) => {
 }
 
 export const deleteAlunos = async (req, res) => {
-  const {id} = req.query
+  const id = req.params.id
     try{
       const result = await DeleteAlunos(id)
       if (result === null){
@@ -52,5 +52,18 @@ export const updateAlunos = async (req, res) =>{
   }
   }catch(e){
     console.log(e)
+  }
+}
+
+export const getAlunosId = async (req, res) => {
+  const id = req.params.id
+  try{
+    const result = await getAlunosById(id)
+    if(result === null){
+          res.status(401).send("Aluno não existe")
+    }else{
+    res.status(201).json({result})
+    }
+  }catch(e){console.log(e);
   }
 }

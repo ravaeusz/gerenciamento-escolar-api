@@ -28,3 +28,10 @@ export async function Updatealunos(id, {nome, sobrenome, peso, telefone}){
     const [rows] = await conn.query(`UPDATE alunos set al_nome=?, al_sobrenome=?, al_peso=?, al_telefone=? where al_id=?` ,[nome, sobrenome, peso, telefone, id])
     return rows
 }
+
+export async function getAlunosById(id){
+    const conn = await connect()
+    const [rows] = await conn.query('Select * from alunos where al_id = ?', [id])
+    return rows
+
+}

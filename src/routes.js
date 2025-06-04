@@ -1,4 +1,4 @@
-import {homeController, PostAlunos, deleteAlunos, updateAlunos} from './controllers/alunosController.js';
+import {homeController, PostAlunos, deleteAlunos, updateAlunos, getAlunosId} from './controllers/alunosController.js';
 import {RegisterController,LoginController, DeleteController, UpdateController} from './controllers/loginController.js'
 
 import {authLogin} from '../middleware/loginMiddleware.js'
@@ -10,8 +10,9 @@ const router = express.Router();
 //ROTAS ALUNOS
 router.get('/alunos',authLogin, homeController);
 router.post('/alunos',authLogin, PostAlunos)
-router.delete('/alunos',authLogin, deleteAlunos)
+router.delete('/alunos/:id',authLogin, deleteAlunos)
 router.put('/alunos/:id',authLogin, updateAlunos)
+router.get('/alunos/:id',authLogin, getAlunosId)
 
 //ROTAS LOGIN
 router.post('/register', RegisterController)

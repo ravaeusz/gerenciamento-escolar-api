@@ -17,7 +17,7 @@ export const RegisterController = async (req, res) => {
         const result = await storeRegister(nome, email, senha);
 
         if (result === null) {
-            res.send("Usuarios ja cadastrado")
+            res.send("Usuario ja cadastrado")
         } else {
             res.send('Usuario cadastrado com sucesso!')
         }

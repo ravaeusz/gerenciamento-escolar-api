@@ -19,11 +19,9 @@ export async function storeRegister(nome, email, senha) {
 
 export async function storeLogin(email, senha) {
 
-
     const conn = await connect();
 
     const [rows] = await conn.query('select * from usuarios where us_email = ?', [email])
-
 
     if (rows.length === 0) {
         return null
@@ -31,7 +29,7 @@ export async function storeLogin(email, senha) {
 
     const senhaCorreta = await bcrypt.compare(senha, rows[0].us_senha)
 
-    if(!senhaCorreta){
+    if (!senhaCorreta) {
         return null
     }
 
@@ -48,7 +46,7 @@ export async function deleteLogin(id) {
     return rows[0].us_nome
 }
 
-export async function updateLogin(senha, id){
+export async function updateLogin(senha, id) {
     const conn = await connect();
     const [rows] = await conn.query('SELECT * FROM usuarios WHERE us_id = ?', [id]);
 

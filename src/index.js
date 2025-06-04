@@ -14,6 +14,6 @@ app.use(router)
 
 app.listen(process.env.PORT, () => {
     console.log("Servidor iniciado!");
-    console.log("Clique + Shift em http://localhost:3000");
+    console.log("Clique + Shift em http://localhost:3030");
     
 })
