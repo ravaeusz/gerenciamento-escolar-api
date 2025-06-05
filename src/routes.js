@@ -1,4 +1,4 @@
-import {homeController, PostAlunos, deleteAlunos, updateAlunos, getAlunosId} from './controllers/alunosController.js';
+import {homeController, PostAlunos, deleteAlunos, updateAlunos, getAlunosId, getAlunoTurma} from './controllers/alunosController.js';
 import {RegisterController,LoginController, DeleteController, UpdateController} from './controllers/loginController.js'
 
 import {authLogin} from '../middleware/loginMiddleware.js'
@@ -13,6 +13,7 @@ router.post('/alunos',authLogin, PostAlunos)
 router.delete('/alunos/:id',authLogin, deleteAlunos)
 router.put('/alunos/:id',authLogin, updateAlunos)
 router.get('/alunos/:id',authLogin, getAlunosId)
+router.get('/alunos/:turma', authLogin, getAlunoTurma)
 
 //ROTAS LOGIN
 router.post('/register', RegisterController)
