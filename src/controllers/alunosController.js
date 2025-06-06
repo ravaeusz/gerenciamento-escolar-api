@@ -69,7 +69,7 @@ export const getAlunosId = async (req, res) => {
 }
 
 export const getAlunoTurma = async (req, res) =>{
-  const turma = req.body.turma
+  const turma = req.params.turma
   try{
     const result = await getAlunosByTurma (turma)
     if(result === null){

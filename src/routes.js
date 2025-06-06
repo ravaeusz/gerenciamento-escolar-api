@@ -13,7 +13,7 @@ router.post('/alunos',authLogin, PostAlunos)
 router.delete('/alunos/:id',authLogin, deleteAlunos)
 router.put('/alunos/:id',authLogin, updateAlunos)
 router.get('/alunos/:id',authLogin, getAlunosId)
-router.get('/alunos/:turma', authLogin, getAlunoTurma)
+router.get('/alunos/turma/:turma', authLogin, getAlunoTurma)
 
 //ROTAS LOGIN
 router.post('/register', RegisterController)
